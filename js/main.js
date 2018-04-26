@@ -76,12 +76,37 @@ console.table(yearsAlive);
 
 /* 7. sort Exercise
 	Sort the people alphabetically by last name */
-const peopleOrdered = people.sort((lastOne, nextOne) => {
-	const [aLast, aFirst] = lastOne.split(', ');
-	const [bLast, bFirst] = nextOne.split(', ');
-	return aLast > bLast ? 1 : -1;
+
+// Para ordenar alfabeticamente por apellido, y si el apellido coincide por nombre
+
+const alpha = people.sort(function(personA, personB) {
+  const personALastName = personA.split(', ')[0];
+  const personBLastName = personB.split(', ')[0];
+  if (personALastName > personBLastName) {
+    return 1;
+  } else if (personALastName < personBLastName) {
+    return -1;
+  } else {
+    const personAFirstName = personA.split(', ')[1];
+    const personBFirstName = personB.split(', ')[1];
+    if (personAFirstName > personBFirstName) {
+      return 1;
+
+    } else if (personAFirstName < personBFirstName) {
+      return -1;
+    }
+  }
 });
-console.log(peopleOrdered);
+
+console.table(alpha);
+
+
+// const peopleOrdered = people.sort((lastOne, nextOne) => {
+// 	const [aLast, aFirst] = lastOne.split(', ');
+// 	const [bLast, bFirst] = nextOne.split(', ');
+// 	return aLast > bLast ? 1 : -1;
+// });
+// console.log(peopleOrdered);
 
 /* 8. Reduce Exercise
 	Sum up the instances of each of these */
