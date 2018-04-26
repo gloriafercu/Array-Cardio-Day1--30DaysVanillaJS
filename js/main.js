@@ -68,8 +68,8 @@ console.table(yearsAlive);
 
 /* 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris */
 
-// const paco = document.querySelector('.mw-category');
-// const links = Array.from(paco.querySelectorAll('a'));
+// const category = document.querySelector('.mw-category');
+// const links = Array.from(category.querySelectorAll('a'));
 // const de = links
 // 	.map(link => link.textContent)
 // 	.filter(street => street.includes('de'));
@@ -111,11 +111,11 @@ console.table(alpha);
 /* 8. Reduce Exercise
 	Sum up the instances of each of these */
 
-const transportation = data.reduce((obj,item) => {
-	if (!obj[item]) {
-		obj[item] = 0;
+const transportation = data.reduce((acc,currentValue) => {
+	if (!acc.hasOwnProperty(currentValue)) {
+		acc[currentValue] = 0;
 	}
-	obj[item]++;
-	return obj;
+	acc[currentValue]++;
+	return acc;
 }, {});
 console.log(transportation);
